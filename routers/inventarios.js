@@ -1,10 +1,10 @@
 import { Router } from "express";
 import mysql from "mysql2";
-const appBodegas = Router();
+const appInventarios = Router();
 let con = undefined;
 
 // conexion a base de datos
-appBodegas.use((req, res, next)=>{
+appInventarios.use((req, res, next)=>{
     try {
         con = mysql.createPool({
             host: "localhost",
@@ -19,19 +19,9 @@ appBodegas.use((req, res, next)=>{
     }
 })
 
-appBodegas.post("/", (req, res) => {
-    // datos que necesitamos para crear una bodega
-    //"id": 
-    // "nombre": 
-    // "id_responsable": 
-    // "estado": 
-    // "created_by": 
-    // "update_by": 
-    // "created_at":
-    // "updated_at": 
-    // "deleted_at"
+appInventarios.post("/", (req, res) => {
     con.query(
-        /*sql*/ `INSERT INTO bodegas SET ?`,
+        /*sql*/ `INSERT INTO inventarios SET ?`,
         req.body,
         (err,data,fils)=>{
             console.log(err);
@@ -46,9 +36,9 @@ appBodegas.post("/", (req, res) => {
 
 })
 
-appBodegas.get("/", (req, res) => {
+appInventarios.get("/", (req, res) => {
     con.query(
-        /*sql*/ `SELECT * FROM bodegas order by nombre asc`,
+        /*sql*/ `SELECT * FROM inventarios order by cantidad desc`,
         req.body,
         (err,data,fils)=>{
             console.log(err);
@@ -59,9 +49,9 @@ appBodegas.get("/", (req, res) => {
     );
 })
 
-appBodegas.put("/:id", (req, res) => {
+appInventarios.put("/:id", (req, res) => {
     con.query(
-        /*sql*/ `UPDATE bodegas SET ? WHERE id= ?`,
+        /*sql*/ `UPDATE inventarios SET ? WHERE id= ?`,
         [req.body, req.params.id],
         (err,data,fils)=>{
             console.log(err);
@@ -72,9 +62,9 @@ appBodegas.put("/:id", (req, res) => {
     );
 })
 
-appBodegas.delete("/:id", (req, res) => {
+appInventarios.delete("/:id", (req, res) => {
     con.query(
-        /*sql*/ `DELETE FROM bodegas WHERE id= ?`,
+        /*sql*/ `DELETE FROM inventarios WHERE id= ?`,
         req.params.id,
         (err,data,fils)=>{
             console.log(err);
@@ -87,4 +77,4 @@ appBodegas.delete("/:id", (req, res) => {
 
 
 
-export default appBodegas;
+export default appInventarios;
