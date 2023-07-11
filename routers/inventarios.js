@@ -7,7 +7,7 @@ let con = undefined;
 appInventarios.use((req, res, next)=>{
     try {
         con = mysql.createPool({
-            host: "localhost",
+            host: "localhost",  
             user: "root",
             password: "123456",
             database: "db_prueba_backend_sql",
@@ -19,7 +19,11 @@ appInventarios.use((req, res, next)=>{
     }
 })
 
-appInventarios.post("/", (req, res) => {
+appInventarios.post("/", (req, res) => { 
+    // endpoint para ingresar productos a la tabla de inventarios
+    //  "id_bodega":
+    // "id_producto":
+    // "cantidad":
     con.query(
         /*sql*/ `INSERT INTO inventarios SET ?`,
         req.body,
