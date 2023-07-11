@@ -1,5 +1,5 @@
 import usuarios from './routers/users.js'
-
+import bodegas from './routers/bodegas.js'
 
 import express from 'express';
 import dotenv from "dotenv";
@@ -14,3 +14,4 @@ appExpress.listen(config, ()=>{
 });
 
 appExpress.use("/usuarios",usuarios)
+appExpress.use("/bodegas",bodegas)
