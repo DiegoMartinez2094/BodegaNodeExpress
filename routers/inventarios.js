@@ -7,9 +7,9 @@ let con = undefined;
 appInventarios.use((req, res, next)=>{
     try {
         con = mysql.createPool({
-            host: "localhost",  
-            user: "root",
-            password: "123456",
+            host: "localhost",
+            user: "campus",
+            password: "campus2023",
             database: "db_prueba_backend_sql",
             port: 3306
     });

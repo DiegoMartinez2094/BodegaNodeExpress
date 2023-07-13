@@ -1,5 +1,6 @@
 import { Router } from "express";
 import mysql from "mysql2";
+
 const appUsuario = Router();
 let con = undefined;
 
@@ -8,8 +9,8 @@ appUsuario.use((req, res, next)=>{
     try {
         con = mysql.createPool({
             host: "localhost",
-            user: "root",
-            password: "123456",
+            user: "campus",
+            password: "campus2023",
             database: "db_prueba_backend_sql",
             port: 3306
     });
@@ -74,7 +75,5 @@ appUsuario.delete("/:id", (req, res) => {
         }
     );
 })
-
-
 
 export default appUsuario;

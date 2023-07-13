@@ -40,9 +40,6 @@ ALTER TABLE inventarios
 ADD CONSTRAINT id_responsable
 FOREIGN KEY (id_responsable) REFERENCES users(id);
 
-
-
-
 ALTER TABLE historiales
 ADD CONSTRAINT created_by3
 FOREIGN KEY (created_by) REFERENCES users(id);
