@@ -1,15 +1,15 @@
-import { Router } from "express";
-import mysql from "mysql2";
-const appBodegas = Router();
-let con = undefined;
+import { Router } from "express"; //importamos de la libreria express el modulo Router
+import mysql from "mysql2"; //importamos de la libreria mysql2 el modulo mysql
+const appBodegas = Router(); //nombramos una variable appBodegas y le asignamos la funcion Router
+let con = undefined; // definimos una variable para usarla más adelante como conexio 
 
 // conexion a base de datos
 appBodegas.use((req, res, next)=>{
     try {
         con = mysql.createPool({
-            host: "localhost",
-            user: "campus",
-            password: "campus2023",
+            host: "127.0.0.1",
+            user: "root",
+            password: "123456",
             database: "db_prueba_backend_sql",
             port: 3306
     });

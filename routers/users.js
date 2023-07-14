@@ -1,5 +1,6 @@
 import { Router } from "express";
 import mysql from "mysql2";
+import appValidate from "../middleware/valiUser.js"; //importamos el middleware para usarlos en el post y put 
 
 const appUsuario = Router();
 let con = undefined;
@@ -8,9 +9,9 @@ let con = undefined;
 appUsuario.use((req, res, next)=>{
     try {
         con = mysql.createPool({
-            host: "localhost",
-            user: "campus",
-            password: "campus2023",
+            host: "127.0.0.1",
+            user: "root",
+            password: "123456",
             database: "db_prueba_backend_sql",
             port: 3306
     });
@@ -20,7 +21,7 @@ appUsuario.use((req, res, next)=>{
     }
 })
 
-appUsuario.post("/", (req, res) => {
+appUsuario.post("/",appValidate, (req, res) => { //el appValidate es el middleware que importamos anteriormente
     con.query(
         /*sql*/ `INSERT INTO users SET ?`,
         req.body,
@@ -34,7 +35,6 @@ appUsuario.post("/", (req, res) => {
             res.status(data.affectedRows).send(result);
         }
     );
-
 })
 
 appUsuario.get("/", (req, res) => {

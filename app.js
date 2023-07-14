@@ -16,10 +16,10 @@ appExpress.use(express.json()); //para que la variable appExpress entienda archi
 let config = JSON.parse(process.env.MY_CONFIG);//lee la variable de entorno MY_CONFIG y la guarda 
 
 appExpress.listen(config, ()=>{
-    console.log(`http://${config.hostname}:${config.port}`);
+    console.log(`http://${config.hostname}:${config.port}`); //mostramos en la consola el enlace del servidor
 });
 
-appExpress.use("/usuarios",usuarios)
+appExpress.use("/usuarios",usuarios) //nombramos el endpoint y el import que usamos anteriormente 
 appExpress.use("/bodegas",bodegas)
 appExpress.use("/inventarios",inventarios)
 appExpress.use("/productos",productos)
