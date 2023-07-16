@@ -1,4 +1,4 @@
-# [**db_prueba_backend_sql**](http://localhost:8080/phpmyadmin/index.php?route=/database/structure&db=db_prueba_backend_sql "Estructura")
+# Bodegas_Node_Express
 
 Este proyecto es una aplicación Node.js la cual se conecta a una base de datos MySQL utilizando el paquete `mysql2`. El objetivo principal es gestionar las operaciones relacionadas con las tablas: bodegas, historiales, inventarios, productos y usuarios. A continuación, se detallan los pasos necesarios para configurar y utilizar el proyecto.
 
