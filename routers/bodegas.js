@@ -8,10 +8,10 @@ appBodegas.use((req, res, next)=>{
     try {
         con = mysql.createPool({
             host: "127.0.0.1",
-            user: "campus",
-            password: "campus2023",
-            // user: "root",
-            // password: "123456",
+            // user: "campus",
+            // password: "campus2023",
+             user: "root",
+             password: "123456",
             database: "db_prueba_backend_sql",
             port: 3306
     });

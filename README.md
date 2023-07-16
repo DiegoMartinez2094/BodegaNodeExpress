@@ -8,15 +8,15 @@ Este proyecto es una aplicación Node.js la cual se conecta a una base de datos 
 
 2- Asegurate de tener instalado node: con el comando  npm install node en la terminal
 
-3- Instala las dependencias del proyecto ejecutado el siguiente comando en la terminal del proyecto: npm install, esto instalará automaticamente las dependencias que tenemos previamente guardadas en el archivo package.json estas son : 
+3- Instala las dependencias del proyecto ejecutado el siguiente comando en la terminal del proyecto: npm install, esto instalará automaticamente las dependencias que tenemos previamente guardadas en el archivo package.json estas son :
 
 * "dotenv": "^16.3.1",
 * "express": "^4.18.2",
 * "mysql2": "^3.5.1",
 * "node": "^20.4.0",
-*  "nodemon": "^3.0.1"
+* "nodemon": "^3.0.1"
 
-4-Configura la conexión a la base de datos.  reemplaza los valores de `host`, `user`, `password` y `database `con los correspondientes.
+4-Configura la conexión a la base de datos.  reemplaza los valores de `host`, `user`, `password` y `database `con los correspondientes, puedes descomentar los que están comentados si estás en campus.
 
 5-Importa los datos de prueba a la base de datos. Ejecuta el script `db_prueba_backend_sql.sql` en tu cliente MySQL para crear las tablas y cargar los datos iniciales necesarios para realizar las pruebas.
 
@@ -74,3 +74,17 @@ Datos de entrada (en el cuerpo de la solicitud):
 * `idProducto`
 * `idBodega`
 * `cantidad`
+
+## PRUEBAS DEL MIDDLEWARE:
+
+![1689535910577](image/README/1689535910577.png)
+
+En esta prueba observamos como al enviar un caracter numerico en el dato nombre, el middleware lo detecta y nos envia el error que creamos en este caso 404 ("el parametro nombre para usuario esta mal escrito")
+
+![1689536442904](image/README/1689536442904.png)
+
+En esta prueba enviamos el dato email erroneamente, podemos ver que nos detecta el error
+
+![1689536479331](image/README/1689536479331.png)
+
+Por último podemos ver que en el parametro estado que debería recibir un valor numerico, enviamos una letra lo que nos genera el error de la parte derecha.
